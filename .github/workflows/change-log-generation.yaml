@@ -18,6 +18,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
+      - name: Get tags # Changelog uses tags, so they need to be fetched
+        run: git fetch --tags origin
+
       - name: Update Changelog
         run: git-chglog -o CHANGELOG.md
 
