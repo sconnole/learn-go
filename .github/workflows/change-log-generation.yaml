@@ -9,16 +9,14 @@ jobs:
   release:
     runs-on: ubuntu-latest
     steps:
+      - name: Install git-chglog
+        uses: jaxxstorm/action-install-gh-release@v1.10.0 
+        with: 
+          platform: linux
+          repo: git-chglog/git-chglog
+
       - name: Checkout
         uses: actions/checkout@v3
-
-      - name: Install asdf & tools
-        uses: asdf-vm/actions/install@v2
-
-      - name: Install git-chglog
-        run: |
-          asdf plugin-add git-chglog https://github.com/GoodwayGroup/asdf-git-chglog.git
-          asdf install git-chglog latest
 
       - name: Update Changelog
         run: git-chglog -o CHANGELOG.md
