@@ -21,7 +21,7 @@ jobs:
       - name: Get tags # Changelog uses tags, so they need to be fetched
         run: |
           git fetch --tags origin
-          git tags --list
+          git tag --list
 
       - name: Update Changelog
         run: git-chglog -o CHANGELOG.md
