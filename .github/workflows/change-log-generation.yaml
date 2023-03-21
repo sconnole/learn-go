@@ -1,0 +1,40 @@
+name: Release Changelog
+
+on: 
+  push: 
+    branches:
+      - main
+
+jobs:
+  release:
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Install asdf & tools
+        uses: asdf-vm/actions/install@v2
+
+      - name: Install git-chglog
+        run: |
+          asdf plugin-add git-chglog https://github.com/GoodwayGroup/asdf-git-chglog.git
+          asdf install git-chglog latest
+
+      - name: Update Changelog
+        run: git-chglog -o CHANGELOG.md
+
+      - name: 'Get Previous tag'
+        id: previoustage
+        uses: "WyriHaximus/github-action-get-previous-tag@v1"
+        with:
+          fallback: 1.0.0
+          
+      - name: Commit changelog 
+        uses: stefanzweifel/git-auto-commit-action@v2.3.0
+        with:
+          commit_message: 'ci(changelog): update changelog to ${{ steps.previoustag.outputs.tag }}'
+          branch: ${{ github.head_ref }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
