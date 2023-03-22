@@ -5,6 +5,18 @@
 ### Ci
 
 * use main branch for changelog commits
+* remove permissions
+* **change-log:** trying direct download for git-chglog
+* **changelog:** add changelog yaml
+* **feat:** pull tags in as well
+
+### Fix
+
+* typo in command for git tag
+
+### Test
+
+* list tags
 
 
 <a name="0.0.2"></a>
