@@ -3,7 +3,7 @@ name: Release Changelog
 on: 
   push: 
     tags:
-      - *.*.*
+      - '*.*.*'
 
 jobs:
   release:
