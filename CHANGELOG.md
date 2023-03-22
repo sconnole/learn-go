@@ -1,4 +1,52 @@
 
+<a name="0.0.7"></a>
+## [0.0.7](/compare/0.0.6...0.0.7) (2023-03-22)
+
+### Fix
+
+* resolve error with yaml file
+
+
+<a name="0.0.6"></a>
+## [0.0.6](/compare/0.0.5...0.0.6) (2023-03-22)
+
+### Chore
+
+* update change-log generation to run on push of tags
+
+
+<a name="0.0.5"></a>
+## [0.0.5](/compare/0.0.4...0.0.5) (2023-03-22)
+
+### Chore
+
+* add commitlint to workflow
+* add commitlint config
+* remove bye.go
+* **pre-commit:** added pre-commit to workflow
+
+### Ci
+
+* **changelog:** update changelog to
+* **changelog:** update changelog to
+
+### Docs
+
+* add readme
+
+
+<a name="0.0.4"></a>
+## [0.0.4](/compare/0.0.3...0.0.4) (2023-03-22)
+
+### Chore
+
+* remove bye.go
+
+### Docs
+
+* add readme
+
+
 <a name="0.0.3"></a>
 ## [0.0.3](/compare/0.0.2...0.0.3) (2023-03-21)
 
