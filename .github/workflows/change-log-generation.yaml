@@ -27,7 +27,7 @@ jobs:
         run: git-chglog -o CHANGELOG.md
      
       - name: 'Get Previous tag'
-        id: previoustage
+        id: previous-stage
         uses: "WyriHaximus/github-action-get-previous-tag@v1"
         with:
           fallback: 1.0.0
@@ -35,7 +35,7 @@ jobs:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4
         with:
-          commit-message: 'ci(changelog): update changelog to ${{ steps.previoustag.outputs.tag }}'
+          commit-message: 'ci(changelog): update changelog to ${{ steps.previous-stage.outputs.tag }}'
           title: Update Changelog
           body: Update changelog to reflect release changes
           branch: update-changelog
