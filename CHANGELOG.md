@@ -1,4 +1,32 @@
 
+<a name="0.0.10"></a>
+## [0.0.10](/compare/0.0.9...0.0.10) (2023-03-23)
+
+### Fix
+
+* typo for id of step
+
+
+<a name="0.0.9"></a>
+## [0.0.9](/compare/0.0.8...0.0.9) (2023-03-23)
+
+### Fix
+
+* resolve yaml file issue for change-log
+
+
+<a name="0.0.8"></a>
+## [0.0.8](/compare/0.0.7...0.0.8) (2023-03-23)
+
+### Chore
+
+* change to using a PR for changelog
+
+### Ci
+
+* **changelog:** update changelog to
+
+
 <a name="0.0.7"></a>
 ## [0.0.7](/compare/0.0.6...0.0.7) (2023-03-22)
 
