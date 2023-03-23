@@ -1,12 +1,11 @@
-name: Release Changelog
-
-on: 
-  push: 
-    tags:
+name: Update Changelog
+on:
+  push:
+    tags: 
       - '*.*.*'
 
-jobs:
-  release:
+  jobs:
+  updateChangelog:
     runs-on: ubuntu-latest
     steps:
       - name: Install git-chglog
@@ -15,8 +14,9 @@ jobs:
           platform: linux
           repo: git-chglog/git-chglog
 
-      - name: Checkout
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
       - name: Get tags # Changelog uses tags, so they need to be fetched
         run: |
@@ -25,17 +25,18 @@ jobs:
 
       - name: Update Changelog
         run: git-chglog -o CHANGELOG.md
-
+     
       - name: 'Get Previous tag'
         id: previoustage
         uses: "WyriHaximus/github-action-get-previous-tag@v1"
         with:
           fallback: 1.0.0
-          
-      - name: Commit changelog 
-        uses: stefanzweifel/git-auto-commit-action@v2.3.0
+ 
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v4
         with:
-          commit_message: 'ci(changelog): update changelog to ${{ steps.previoustag.outputs.tag }}'
-          branch: main
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: 'ci(changelog): update changelog to ${{ steps.previoustag.outputs.tag }}'
+          title: Update Changelog
+          body: Update changelog to reflect release changes
+          branch: update-changelog
+          base: main
