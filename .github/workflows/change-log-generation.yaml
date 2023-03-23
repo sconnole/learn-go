@@ -4,8 +4,8 @@ on:
     tags: 
       - '*.*.*'
 
-  jobs:
-  updateChangelog:
+jobs:
+  update-change-log:
     runs-on: ubuntu-latest
     steps:
       - name: Install git-chglog
